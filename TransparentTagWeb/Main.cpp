@@ -415,7 +415,7 @@ public:
 					tagStoppingTimer.restart(3.0s);
 					roomData.clearTraps();
 					trapAccumulatedTime = 0.0;
-					sendEvent({ EventCode::tagStop },0);
+					sendEvent({ EventCode::tagStop }, 0);
 				}
 			}
 		}
@@ -556,6 +556,9 @@ public:
 			Line{ trapAccumulatedCircle.center - dir,trapAccumulatedCircle.center + dir }.draw(3, Palette::Red);
 		}
 
+		// 操作説明
+		FontAsset(U"message")(U"移動: 矢印キー/WASD  透明化: スペースキー").drawAt(20, Vec2{ 400,580 }, Palette::White);
+
 		if (SimpleGUI::Button(U"Exit", Vec2{ 700,10 })) {
 			leaveRoom();
 			state = NetWorkState::Leaving;
@@ -610,7 +613,7 @@ public:
 				tagStoppingTimer.restart(3.0s);
 				roomData.clearTraps();
 				trapAccumulatedTime = 0.0;
-				sendEvent({ EventCode::tagStop },0);
+				sendEvent({ EventCode::tagStop }, 0);
 			}
 
 			roomData.erasePlayer(playerID);
