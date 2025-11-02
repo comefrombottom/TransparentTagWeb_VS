@@ -1,0 +1,6 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Emscripten" />
+  </Configurations>
+  <Project Path="TransparentTagWeb/TransparentTagWeb.vcxproj" />
+</Solution>
