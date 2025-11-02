@@ -557,7 +557,7 @@ public:
 		}
 
 		// 操作説明
-		FontAsset(U"message")(U"移動: 矢印キー/WASD  透明化: スペースキー").drawAt(20, Vec2{ 400,580 }, Palette::White);
+		FontAsset(U"message")(U"移動: 矢印キー/WASD  透明化: スペースキー 静止で可視化").drawAt(20, Vec2{ 400,580 }, Palette::White);
 
 		if (SimpleGUI::Button(U"Exit", Vec2{ 700,10 })) {
 			leaveRoom();
@@ -738,7 +738,7 @@ public:
 				if (roomData.traps().contains(trapID)) {
 					roomData.eraseTrap(trapID);
 					sendEvent({ EventCode::eraseTrap }, trapID);
-					sendEvent({ EventCode::solveTrapped , Array{ playerID } });
+					sendEvent({ EventCode::solveTrapped , Array{ playerID } }, 0);
 				}
 			}
 		}
